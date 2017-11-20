@@ -1,0 +1,28 @@
+{
+	"name": "JungleSales",
+	"version": "1.0.0",
+	"description": "Sales made fun or whatever",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"keywords": [
+		"comments",
+		"users",
+		"node",
+		"express",
+		"structure"
+	],
+	"author": "Jacob Virgin",
+	"license": "Something",
+	"dependencies": {
+		"express": "^4.9.5",
+		"jade": "^1.7.0",
+		"mongodb-stitch": "^1.0.9",
+		"node-schedule": "^1.2.5"
+	},
+	"devDependencies": {
+		"mocha": "^1.21.4",
+		"should": "^4.0.4"
+	}
+}
