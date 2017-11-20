@@ -15,8 +15,6 @@ db.connect(function(err) {
 		console.log("Unable to connect to Mongo.");
 		process.exit(1);
 	} else {
-		app.listen(3000, function() {
-			console.log("Listening on port 3000...");
-		});
+		app.listen(process.env.PORT || 5000);
 	}
 });
