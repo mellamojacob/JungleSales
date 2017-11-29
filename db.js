@@ -27,9 +27,9 @@ exports.fetch = function(crit, cb) {
 	})
 }
 
-exports.update = function(crit) {
+exports.update = function(crit, data) {
 	client.login().then(() => 
-		db.collection('companies').updateOne({name: crit}, {$set: {time_stamp : 7}}, {upsert: false})
+		db.collection('companies').updateOne({name: crit}, {$set: data}, {upsert: false})
 	).then(() => 
 		db.collection('companies').find({name: crit})
 	).then(docs => {

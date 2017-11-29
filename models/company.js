@@ -32,6 +32,6 @@ exports.allByUser = function(user, cb) {
 	db.fetch({user: user}, cb);
 }
 
-exports.update = function(crit) {
-	db.update(crit);
+exports.update = function(crit, data) {
+	db.update(crit, data);
 }
