@@ -19,7 +19,7 @@ router.get('/:id', function(req, res) {
 	});
 });
 
-var j = schedule.scheduleJob('0 10 14 * * *', function() {
+var j = schedule.scheduleJob('0 20 14 * * *', function() {
 	var allComps = Company.all(function(companies) {
 		for(var company in companies) {
 			//console.log("The company timestamp is ", companies[company].time_stamp);
