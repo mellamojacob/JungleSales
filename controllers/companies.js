@@ -19,22 +19,28 @@ router.get('/:id', function(req, res) {
 	});
 });
 
-var j = schedule.scheduleJob('0 35 14 * * *', function() {
+var j = schedule.scheduleJob('0 18 13 * * *', function() {
 	var allComps = Company.all(function(companies) {
 		for(var company in companies) {
-			//console.log("The company timestamp is ", companies[company].time_stamp);
 			var time = companies[company].time_stamp;
 			var id = companies[company]._id;
 			var name = companies[company].name;
+			var data;
 			if(time != undefined) {
 				time = time - 1;
-				//console.log(time);
-				//console.log(id);
 				if(time == 1000) {
-					time = 7;
+					data = {time_stamp: 7};
 				}
-				//Company.update(name, {$set: {time_stamp: time}}, {upsert: false});
-				Company.update(name);
+				else if(time == 0) {
+					data = {user: 0};
+				}
+				else {
+					data = {time_stamp: time}
+				}
+				Company.update(name, data);
+				console.log(name, "Complete", time);
+			} else {
+				Company.upsert(name, {time_stamp: 7});
 			}
 		}});
 	});

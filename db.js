@@ -27,13 +27,21 @@ exports.fetch = function(crit, cb) {
 	})
 }
 
-exports.update = function(crit) {
+exports.update = function(crit, data) {
 	client.login().then(() => 
-		db.collection('companies').updateOne({name: crit}, {$set: {time_stamp : 7}}, {upsert: false})
-	).then(() => 
-		db.collection('companies').find({name: crit})
+		db.collection('companies').updateOne({name: crit}, {$set: data}, {upsert: false})
 	).then(docs => {
-		console.log(docs);
+		console.log("Finished updating documents");
+	}).catch(err => {
+		console.log(err);
+	})
+}
+
+exports.upsert = function(crit, data) {
+	client.login().then(() => 
+		db.collection('companies').updateOne({name: crit}, {$set: data}, {upsert: true})
+	).then(docs => {
+		console.log("Finished upserting documents");
 	}).catch(err => {
 		console.log(err);
 	})
