@@ -7,7 +7,7 @@ router.use('/companies', require('./companies'));
 
 router.get('/', function(req, res) {
 	Company.all(function(err, companies) {
-		res.render('index', {companies: companies})
+		res.render('index.html', {companies: companies})
 	})
 });
 
