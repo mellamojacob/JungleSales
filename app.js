@@ -10,12 +10,14 @@ app.use(express.static(__dirname + '/public'));
 app.use(require('./middlewares/users'));
 app.use(require('./controllers'));
 
+var port = process.env.PORT || 3000;
+
 db.connect(function(err) {
 	if (err) {
 		console.log("Unable to connect to Mongo.");
 		process.exit(1);
 	} else {
-		app.listen(3000, function() {
+		app.listen(port, function() {
 			console.log("Listening on port 3000...");
 		});
 	}
