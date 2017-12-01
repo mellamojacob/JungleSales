@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-
-
-var Company = require('../models/company.'),
+var Company = require('../models/company'),
 
 
 Company.all(function(companies) {
