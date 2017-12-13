@@ -6,6 +6,10 @@ exports.create = function(user, name, phone_number, cb) {
 		user: user,
 		name: name,
 		phone_number: phone_number
+		time_stamp: 1000, 
+		tier: "New",
+		level: 5,
+		meeting_scheduled: null
 	};
 
 	db.save(company, cb);
