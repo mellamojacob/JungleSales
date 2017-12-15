@@ -16,11 +16,13 @@ Company.all(function(companies) {
 			time = time - 1;
 			if(time == 1000) {
 				time = 7;
-			} else if(time <= 0){
-				data = {tier: "graveyard", user: 0};
-				time = 0;
 			}
-			data = {time_stamp: time};
+			if(time <= 0){
+				data = {tier: "graveyard", user: 0, level: level};
+				time = 0;
+			} else {
+				data = {time_stamp: time, level: level};
+			}
 			Company.update(name, data);
 			console.log(name, " was updated");
 		}
